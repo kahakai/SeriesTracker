@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48661AEB2AE04C400067B7D8 /* AddShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48661AEA2AE04C400067B7D8 /* AddShowView.swift */; };
+		48661AEE2AE0518E0067B7D8 /* TextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48661AED2AE0518E0067B7D8 /* TextFieldStyle.swift */; };
 		48BC6CA02AE0466D00AB0C1E /* SeriesTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BC6C9F2AE0466D00AB0C1E /* SeriesTrackerApp.swift */; };
 		48BC6CA22AE0466D00AB0C1E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BC6CA12AE0466D00AB0C1E /* ContentView.swift */; };
 		48BC6CA42AE0466F00AB0C1E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 48BC6CA32AE0466F00AB0C1E /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		48661AEA2AE04C400067B7D8 /* AddShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShowView.swift; sourceTree = "<group>"; };
+		48661AED2AE0518E0067B7D8 /* TextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyle.swift; sourceTree = "<group>"; };
 		48BC6C9C2AE0466D00AB0C1E /* SeriesTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeriesTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		48BC6C9F2AE0466D00AB0C1E /* SeriesTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeriesTrackerApp.swift; sourceTree = "<group>"; };
 		48BC6CA12AE0466D00AB0C1E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -36,6 +40,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		48661AEC2AE050BC0067B7D8 /* Styles */ = {
+			isa = PBXGroup;
+			children = (
+				48661AED2AE0518E0067B7D8 /* TextFieldStyle.swift */,
+			);
+			path = Styles;
+			sourceTree = "<group>";
+		};
+		48661AEF2AE060A00067B7D8 /* AddShow */ = {
+			isa = PBXGroup;
+			children = (
+				48661AEA2AE04C400067B7D8 /* AddShowView.swift */,
+			);
+			path = AddShow;
+			sourceTree = "<group>";
+		};
 		48BC6C932AE0466D00AB0C1E = {
 			isa = PBXGroup;
 			children = (
@@ -55,6 +75,8 @@
 		48BC6C9E2AE0466D00AB0C1E /* SeriesTracker */ = {
 			isa = PBXGroup;
 			children = (
+				48661AEF2AE060A00067B7D8 /* AddShow */,
+				48661AEC2AE050BC0067B7D8 /* Styles */,
 				48BC6C9F2AE0466D00AB0C1E /* SeriesTrackerApp.swift */,
 				48BC6CA12AE0466D00AB0C1E /* ContentView.swift */,
 				48BC6CA32AE0466F00AB0C1E /* Assets.xcassets */,
@@ -145,6 +167,8 @@
 			files = (
 				48BC6CA92AE0466F00AB0C1E /* Persistence.swift in Sources */,
 				48BC6CAC2AE0466F00AB0C1E /* SeriesTracker.xcdatamodeld in Sources */,
+				48661AEB2AE04C400067B7D8 /* AddShowView.swift in Sources */,
+				48661AEE2AE0518E0067B7D8 /* TextFieldStyle.swift in Sources */,
 				48BC6CA22AE0466D00AB0C1E /* ContentView.swift in Sources */,
 				48BC6CA02AE0466D00AB0C1E /* SeriesTrackerApp.swift in Sources */,
 			);
