@@ -27,33 +27,28 @@ struct AddShowView: View {
     private var amountOfEpisodes: String = ""
 
     var body: some View {
-        VStack(spacing: 16) {
-            TextField("Show name", text: $showName)
-                .textFieldStyle(.colorRoundedBorder)
+        VStack {
+            Form {
+                TextField("Show name", text: $showName)
 
-            Toggle("Has several seasons", isOn: $hasSeveralSeasons)
-                .padding(.top, 16)
+                Toggle("Has several seasons", isOn: $hasSeveralSeasons)
+                    .padding(.top, 16)
 
-            if hasSeveralSeasons {
-                TextField("Current season", text: $currentSeason)
-                    .textFieldStyle(.colorRoundedBorder)
+                if hasSeveralSeasons {
+                    TextField("Current season", text: $currentSeason)
+                        .keyboardType(.asciiCapableNumberPad)
+                }
+
+                TextField("Current episode", text: $showName)
+                    .keyboardType(.asciiCapableNumberPad)
+
+                TextField("Amount of episodes", text: $amountOfEpisodes)
                     .keyboardType(.asciiCapableNumberPad)
             }
-
-            TextField("Current episode", text: $showName)
-                .textFieldStyle(.colorRoundedBorder)
-                .keyboardType(.asciiCapableNumberPad)
-
-            TextField("Amount of episodes", text: $amountOfEpisodes)
-                .textFieldStyle(.colorRoundedBorder)
-                .keyboardType(.asciiCapableNumberPad)
-
-            Spacer(minLength: 10)
 
             Button("Add show", action: addShow)
                 .buttonStyle(.borderedProminent)
         }
-        .padding()
     }
 
     private func addShow() {
