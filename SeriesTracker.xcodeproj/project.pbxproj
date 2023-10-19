@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		48545F942AE1795100DBDB96 /* AddShowUiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48545F932AE1795100DBDB96 /* AddShowUiState.swift */; };
+		48545F962AE1799500DBDB96 /* AddShowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48545F952AE1799500DBDB96 /* AddShowViewModel.swift */; };
+		48545F9A2AE17EBE00DBDB96 /* NewShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48545F992AE17EBE00DBDB96 /* NewShow.swift */; };
 		48661AEB2AE04C400067B7D8 /* AddShowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48661AEA2AE04C400067B7D8 /* AddShowView.swift */; };
 		48661AEE2AE0518E0067B7D8 /* TextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48661AED2AE0518E0067B7D8 /* TextFieldStyle.swift */; };
 		48BC6CA02AE0466D00AB0C1E /* SeriesTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48BC6C9F2AE0466D00AB0C1E /* SeriesTrackerApp.swift */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		48545F932AE1795100DBDB96 /* AddShowUiState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShowUiState.swift; sourceTree = "<group>"; };
+		48545F952AE1799500DBDB96 /* AddShowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShowViewModel.swift; sourceTree = "<group>"; };
+		48545F992AE17EBE00DBDB96 /* NewShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewShow.swift; sourceTree = "<group>"; };
 		48661AEA2AE04C400067B7D8 /* AddShowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShowView.swift; sourceTree = "<group>"; };
 		48661AED2AE0518E0067B7D8 /* TextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldStyle.swift; sourceTree = "<group>"; };
 		48BC6C9C2AE0466D00AB0C1E /* SeriesTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SeriesTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +46,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		48545F972AE17EA300DBDB96 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				48661AEF2AE060A00067B7D8 /* AddShow */,
+				48545F9B2AE183B600DBDB96 /* Common */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		48545F982AE17EAD00DBDB96 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				48545F992AE17EBE00DBDB96 /* NewShow.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		48545F9B2AE183B600DBDB96 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				48661AEC2AE050BC0067B7D8 /* Styles */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		48661AEC2AE050BC0067B7D8 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
@@ -51,7 +82,9 @@
 		48661AEF2AE060A00067B7D8 /* AddShow */ = {
 			isa = PBXGroup;
 			children = (
+				48545F932AE1795100DBDB96 /* AddShowUiState.swift */,
 				48661AEA2AE04C400067B7D8 /* AddShowView.swift */,
+				48545F952AE1799500DBDB96 /* AddShowViewModel.swift */,
 			);
 			path = AddShow;
 			sourceTree = "<group>";
@@ -75,8 +108,8 @@
 		48BC6C9E2AE0466D00AB0C1E /* SeriesTracker */ = {
 			isa = PBXGroup;
 			children = (
-				48661AEF2AE060A00067B7D8 /* AddShow */,
-				48661AEC2AE050BC0067B7D8 /* Styles */,
+				48545F982AE17EAD00DBDB96 /* Domain */,
+				48545F972AE17EA300DBDB96 /* Presentation */,
 				48BC6C9F2AE0466D00AB0C1E /* SeriesTrackerApp.swift */,
 				48BC6CA12AE0466D00AB0C1E /* ContentView.swift */,
 				48BC6CA32AE0466F00AB0C1E /* Assets.xcassets */,
@@ -170,7 +203,10 @@
 				48661AEB2AE04C400067B7D8 /* AddShowView.swift in Sources */,
 				48661AEE2AE0518E0067B7D8 /* TextFieldStyle.swift in Sources */,
 				48BC6CA22AE0466D00AB0C1E /* ContentView.swift in Sources */,
+				48545F942AE1795100DBDB96 /* AddShowUiState.swift in Sources */,
+				48545F9A2AE17EBE00DBDB96 /* NewShow.swift in Sources */,
 				48BC6CA02AE0466D00AB0C1E /* SeriesTrackerApp.swift in Sources */,
+				48545F962AE1799500DBDB96 /* AddShowViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

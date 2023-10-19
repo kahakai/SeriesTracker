@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct AddShowView: View {
+    @StateObject
+    private var viewModel = AddShowViewModel()
+
     @State
     private var showName: String = ""
 
@@ -54,7 +57,15 @@ struct AddShowView: View {
     }
 
     private func addShow() {
-        // Save the new show.
+        let newShow = NewShow(
+            name: showName,
+            hasSeveralSeasons: hasSeveralSeasons,
+            currentSeason: Int(currentSeason) ?? 1,
+            currentEpisode: Int(currentEpisode) ?? 0,
+            amountOfEpisodes: Int(amountOfEpisodes) ?? 0
+        )
+
+        viewModel.addShow(newShow)
     }
 }
 
