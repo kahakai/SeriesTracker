@@ -18,14 +18,7 @@ struct ContentView: View {
 
     var body: some View {
         NavigationStack {
-            List {
-                ForEach(items) { item in
-                    NavigationLink(value: item) {
-                        Text(item.timestamp!, formatter: itemFormatter)
-                    }
-                }
-                .onDelete(perform: deleteItems)
-            }
+            ShowsView()
             .toolbar {
                 ToolbarItem(placement: .navigationBarTrailing) {
                     EditButton()
