@@ -20,9 +20,7 @@ struct ContentView: View {
         NavigationStack {
             List {
                 ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
+                    NavigationLink(value: item) {
                         Text(item.timestamp!, formatter: itemFormatter)
                     }
                 }
@@ -38,6 +36,10 @@ struct ContentView: View {
                     }
                 }
             }
+            .navigationDestination(for: Item.self) { item in
+                Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+            }
+
             Text("Select an item")
         }
     }
