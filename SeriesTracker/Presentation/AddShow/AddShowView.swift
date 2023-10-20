@@ -49,6 +49,7 @@ struct AddShowView: View {
             Button("Add show", action: addShow)
                 .buttonStyle(.borderedProminent)
         }
+        .navigationTitle("Add show")
     }
 
     private func addShow() {
@@ -61,6 +62,11 @@ struct AddShowView: View {
         )
 
         viewModel.addShow(newShow)
+    }
+}
+
+extension AddShowView {
+    struct Arguments: Hashable {
     }
 }
 

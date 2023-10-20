@@ -30,6 +30,7 @@ struct ShowsView: View {
                     .font(.headline)
             }
         }
+        .navigationTitle("Shows")
         .onAppear {
             viewModel.loadShows()
         }
