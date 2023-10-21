@@ -8,50 +8,24 @@
 import Combine
 
 final class ShowsViewModel: ObservableObject {
+    private let showsRepository: ShowsRepository
+
     @Published
     private(set) var uiState: ShowsUiState = .loading
+
+    init(showsRepository: ShowsRepository) {
+        self.showsRepository = showsRepository
+    }
 
     func loadShows() {
         uiState = .loading
 
-        let shows = [
-            Show(
-                name: "Rick & Morty",
-                hasSeveralSeasons: true,
-                currentSeason: 1,
-                currentEpisode: 1,
-                amountOfEpisodes: 24
-            ),
-            Show(
-                name: "Rick & Morty",
-                hasSeveralSeasons: true,
-                currentSeason: 1,
-                currentEpisode: 1,
-                amountOfEpisodes: 24
-            ),
-            Show(
-                name: "Rick & Morty",
-                hasSeveralSeasons: true,
-                currentSeason: 1,
-                currentEpisode: 1,
-                amountOfEpisodes: 24
-            ),
-            Show(
-                name: "Rick & Morty",
-                hasSeveralSeasons: true,
-                currentSeason: 1,
-                currentEpisode: 1,
-                amountOfEpisodes: 24
-            ),
-            Show(
-                name: "Rick & Morty",
-                hasSeveralSeasons: true,
-                currentSeason: 1,
-                currentEpisode: 1,
-                amountOfEpisodes: 24
-            ),
-        ]
+        do {
+            let shows = try showsRepository.getShows()
 
-        uiState = .success(shows)
+            uiState = .success(shows)
+        } catch {
+            uiState = .error(error)
+        }
     }
 }

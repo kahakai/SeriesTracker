@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ShowsView: View {
     @StateObject
-    private var viewModel = ShowsViewModel()
+    var viewModel: ShowsViewModel
 
     var body: some View {
         VStack {
@@ -39,6 +39,13 @@ struct ShowsView: View {
 
 struct ShowsView_Previews: PreviewProvider {
     static var previews: some View {
-        ShowsView()
+        ShowsView(
+            viewModel: ShowsViewModel(
+                showsRepository: ShowsRepository(
+                    persistenceController: PersistenceController.preview,
+                    showsMapper: ShowsMapper()
+                )
+            )
+        )
     }
 }

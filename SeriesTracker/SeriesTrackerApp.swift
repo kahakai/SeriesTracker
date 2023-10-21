@@ -13,8 +13,9 @@ struct SeriesTrackerApp: App {
 
     var body: some Scene {
         WindowGroup {
-            AppView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
+            AppView(
+                persistenceController: persistenceController
+            )
         }
     }
 }
