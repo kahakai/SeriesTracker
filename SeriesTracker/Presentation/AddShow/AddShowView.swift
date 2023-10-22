@@ -9,7 +9,10 @@ import SwiftUI
 
 struct AddShowView: View {
     @StateObject
-    private var viewModel = AddShowViewModel()
+    var viewModel: AddShowViewModel
+
+    @Environment(\.dismiss)
+    private var dismiss
 
     @State
     private var showName: String = ""
@@ -25,6 +28,13 @@ struct AddShowView: View {
 
     @State
     private var amountOfEpisodes: String = ""
+
+    private var isAddShowButtonDisabled: Bool {
+        return showName.count < 2
+            || (hasSeveralSeasons && currentSeason.isEmpty)
+            || currentEpisode.isEmpty
+            || amountOfEpisodes.isEmpty
+    }
 
     var body: some View {
         VStack {
@@ -46,19 +56,40 @@ struct AddShowView: View {
                     .keyboardType(.asciiCapableNumberPad)
             }
 
-            Button("Add show", action: addShow)
-                .buttonStyle(.borderedProminent)
+            if let error = viewModel.uiState.error {
+                Text(error)
+                    .font(.headline)
+            }
+
+            Button(
+                action: addShow,
+                label: {
+                    if viewModel.uiState.isLoading {
+                        ProgressView()
+                    } else {
+                        Text("Add show")
+                    }
+                }
+            )
+            .buttonStyle(.borderedProminent)
+            .disabled(isAddShowButtonDisabled)
         }
         .navigationTitle("Add show")
+        .disabled(viewModel.uiState.isLoading)
+        .onChange(of: viewModel.uiState.isSuccessfullyAdded) { shouldDismiss in
+            if shouldDismiss {
+                dismiss()
+            }
+        }
     }
 
     private func addShow() {
-        let newShow = NewShow(
+        let newShow = Show(
             name: showName,
             hasSeveralSeasons: hasSeveralSeasons,
             currentSeason: Int(currentSeason) ?? 1,
             currentEpisode: Int(currentEpisode) ?? 0,
-            amountOfEpisodes: Int(amountOfEpisodes) ?? 0
+            amountOfEpisodes: Int(amountOfEpisodes) ?? 1
         )
 
         viewModel.addShow(newShow)
@@ -72,6 +103,13 @@ extension AddShowView {
 
 struct AddShowView_Previews: PreviewProvider {
     static var previews: some View {
-        AddShowView()
+        AddShowView(
+            viewModel: AddShowViewModel(
+                showsRepository: ShowsRepository(
+                    persistenceController: PersistenceController.preview,
+                    showsMapper: ShowsMapper()
+                )
+            )
+        )
     }
 }

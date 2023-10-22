@@ -8,10 +8,40 @@
 import Combine
 
 final class AddShowViewModel: ObservableObject {
-    @Published
-    private(set) var uiState: AddShowUiState = .initial
+    private let showsRepository: ShowsRepository
 
-    func addShow(_ newShow: NewShow) {
-        // Save the new show.
+    @Published
+    private(set) var uiState = AddShowUiState(
+        isLoading: false,
+        isSuccessfullyAdded: false,
+        error: nil
+    )
+
+    init(showsRepository: ShowsRepository) {
+        self.showsRepository = showsRepository
+    }
+
+    func addShow(_ newShow: Show) {
+        uiState = AddShowUiState(
+            isLoading: true,
+            isSuccessfullyAdded: false,
+            error: nil
+        )
+
+        do {
+            try showsRepository.addShow(newShow)
+
+            uiState = AddShowUiState(
+                isLoading: false,
+                isSuccessfullyAdded: true,
+                error: nil
+            )
+        } catch {
+            uiState = AddShowUiState(
+                isLoading: false,
+                isSuccessfullyAdded: false,
+                error: error.localizedDescription
+            )
+        }
     }
 }

@@ -6,6 +6,16 @@
 //
 
 struct ShowsMapper {
+    func map(_ show: Show) -> ShowEntity {
+        let entity = ShowEntity()
+        entity.name = show.name
+        entity.hasSeveralSeasons = show.hasSeveralSeasons
+        entity.currentSeason = Int16(show.currentSeason)
+        entity.currentEpisode = Int16(show.currentEpisode)
+        entity.amountOfEpisodes = Int16(show.amountOfEpisodes)
+        return entity
+    }
+
     func map(_ showEntities: [ShowEntity]) -> [Show] {
         return showEntities.map { entity in
             Show(

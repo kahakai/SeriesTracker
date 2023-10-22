@@ -32,7 +32,14 @@ struct AppView: View {
                 }
             }
             .navigationDestination(for: AddShowView.Arguments.self) { _ in
-                AddShowView()
+                AddShowView(
+                    viewModel: AddShowViewModel(
+                        showsRepository: ShowsRepository(
+                            persistenceController: persistenceController,
+                            showsMapper: ShowsMapper()
+                        )
+                    )
+                )
             }
         }
     }

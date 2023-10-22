@@ -16,6 +16,13 @@ struct ShowsRepository {
         return container.viewContext
     }
 
+    func addShow(_ show: Show) throws {
+        let entity = showsMapper.map(show)
+
+        managedContext.insert(entity)
+        try managedContext.save()
+    }
+
     func getShows() throws -> [Show] {
         let fetchAllRequest = ShowEntity.fetchRequest()
         let entities = try managedContext.fetch(fetchAllRequest)
