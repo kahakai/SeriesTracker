@@ -61,8 +61,8 @@
 		48486AFA2AE41BBC00E6997E /* Shows */ = {
 			isa = PBXGroup;
 			children = (
-				48486AFB2AE41BDF00E6997E /* ShowsRepository.swift */,
 				48486B002AE430BF00E6997E /* ShowsMapper.swift */,
+				48486AFB2AE41BDF00E6997E /* ShowsRepository.swift */,
 			);
 			path = Shows;
 			sourceTree = "<group>";

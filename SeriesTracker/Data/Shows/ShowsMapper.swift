@@ -19,16 +19,18 @@ struct ShowsMapper {
         return entity
     }
 
+    func map(_ showEntity: ShowEntity) -> Show {
+        return Show(
+            id: showEntity.id ?? UUID(),
+            name: showEntity.name ?? "N/A",
+            hasSeveralSeasons: showEntity.hasSeveralSeasons,
+            currentSeason: Int(showEntity.currentSeason),
+            currentEpisode: Int(showEntity.currentEpisode),
+            amountOfEpisodes: Int(showEntity.amountOfEpisodes)
+        )
+    }
+
     func map(_ showEntities: [ShowEntity]) -> [Show] {
-        return showEntities.map { entity in
-            Show(
-                id: entity.id ?? UUID(),
-                name: entity.name ?? "N/A",
-                hasSeveralSeasons: entity.hasSeveralSeasons,
-                currentSeason: Int(entity.currentSeason),
-                currentEpisode: Int(entity.currentEpisode),
-                amountOfEpisodes: Int(entity.amountOfEpisodes)
-            )
-        }
+        return showEntities.map(map(_:))
     }
 }

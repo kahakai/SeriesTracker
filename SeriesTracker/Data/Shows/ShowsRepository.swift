@@ -28,4 +28,21 @@ struct ShowsRepository {
         let entities = try managedContext.fetch(fetchAllRequest)
         return showsMapper.map(entities)
     }
+
+    func getShow(withID id: UUID) throws -> Show? {
+        let fetchRequest = ShowEntity.fetchRequest()
+        fetchRequest.predicate = NSPredicate(
+            format: "%K == $@",
+            NSExpression(forKeyPath: \Show.id).keyPath, id as NSUUID
+        )
+        fetchRequest.fetchLimit = 1
+
+        let entities = try managedContext.fetch(fetchRequest)
+
+        guard let entity = entities.first else {
+            return nil
+        }
+
+        return showsMapper.map(entity)
+    }
 }
