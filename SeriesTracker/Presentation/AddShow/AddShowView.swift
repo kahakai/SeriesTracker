@@ -85,6 +85,7 @@ struct AddShowView: View {
 
     private func addShow() {
         let newShow = Show(
+            id: UUID(),
             name: showName,
             hasSeveralSeasons: hasSeveralSeasons,
             currentSeason: Int(currentSeason) ?? 1,

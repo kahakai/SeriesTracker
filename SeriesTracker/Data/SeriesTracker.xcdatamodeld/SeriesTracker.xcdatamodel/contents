@@ -5,6 +5,7 @@
         <attribute name="currentEpisode" attributeType="Integer 16" minValueString="0" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="currentSeason" attributeType="Integer 16" minValueString="1" defaultValueString="1" usesScalarValueType="YES"/>
         <attribute name="hasSeveralSeasons" attributeType="Boolean" usesScalarValueType="YES"/>
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" attributeType="String" minValueString="2"/>
     </entity>
 </model>

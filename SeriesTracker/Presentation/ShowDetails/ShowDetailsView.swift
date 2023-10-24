@@ -46,6 +46,7 @@ struct ShowDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         ShowDetailsView(
             show: Show(
+                id: UUID(),
                 name: "Adventure Time",
                 hasSeveralSeasons: true,
                 currentSeason: 1,
