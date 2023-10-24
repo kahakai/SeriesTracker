@@ -25,7 +25,7 @@ final class ShowsViewModel: ObservableObject {
 
             uiState = .success(shows)
         } catch {
-            uiState = .error(error)
+            uiState = .error(error.localizedDescription)
         }
     }
 }

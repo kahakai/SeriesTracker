@@ -8,50 +8,77 @@
 import SwiftUI
 
 struct ShowDetailsView: View {
-    let show: Show
+    let showID: Show.ID
+
+    @StateObject
+    var viewModel: ShowDetailsViewModel
 
     var body: some View {
-        Form {
-            if show.hasSeveralSeasons {
-                HStack {
-                    Text("Current season")
-                    Spacer()
-                    Text("\(show.currentSeason)")
+        VStack {
+            switch viewModel.uiState {
+            case .loading:
+                ProgressView()
+                    .controlSize(.large)
+            case let .success(show):
+                Form {
+                    if show.hasSeveralSeasons {
+                        HStack {
+                            Text("Current season")
+                            Spacer()
+                            Text("\(show.currentSeason)")
+                        }
+                    }
+
+                    HStack {
+                        Text("Current episode")
+                        Spacer()
+                        Text("\(show.currentEpisode)")
+                    }
+
+                    HStack {
+                        Text("Amount of episodes")
+                        Spacer()
+                        Text("\(show.amountOfEpisodes)")
+                    }
                 }
-            }
-
-            HStack {
-                Text("Current episode")
-                Spacer()
-                Text("\(show.currentEpisode)")
-            }
-
-            HStack {
-                Text("Amount of episodes")
-                Spacer()
-                Text("\(show.amountOfEpisodes)")
+            case let .error(errorMessage):
+                Text(errorMessage)
+                    .font(.headline)
             }
         }
-        .navigationTitle(show.name)
+        .navigationTitle(getNavigationTitle())
+        .onAppear {
+            viewModel.loadShow(withID: showID)
+        }
+    }
+
+    private func getNavigationTitle() -> String {
+        switch viewModel.uiState {
+        case .loading:
+            return "Loading..."
+        case let .success(show):
+            return show.name
+        case .error(_):
+            return "Error"
+        }
     }
 }
 
 extension ShowDetailsView {
     struct Arguments: Hashable {
-        let show: Show
+        let showID: Show.ID
     }
 }
 
 struct ShowDetailsView_Previews: PreviewProvider {
     static var previews: some View {
         ShowDetailsView(
-            show: Show(
-                id: UUID(),
-                name: "Adventure Time",
-                hasSeveralSeasons: true,
-                currentSeason: 1,
-                currentEpisode: 1,
-                amountOfEpisodes: 16
+            showID: UUID(uuidString: "E621E1F8-C36C-495A-93FC-0C247A3E6E5F")!,
+            viewModel: ShowDetailsViewModel(
+                showsRepository: ShowsRepository(
+                    persistenceController: PersistenceController.preview,
+                    showsMapper: ShowsMapper()
+                )
             )
         )
     }

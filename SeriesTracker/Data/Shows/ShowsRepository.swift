@@ -32,8 +32,8 @@ struct ShowsRepository {
     func getShow(withID id: UUID) throws -> Show? {
         let fetchRequest = ShowEntity.fetchRequest()
         fetchRequest.predicate = NSPredicate(
-            format: "%K == $@",
-            NSExpression(forKeyPath: \Show.id).keyPath, id as NSUUID
+            format: "%K == %@",
+            "id", id as NSUUID
         )
         fetchRequest.fetchLimit = 1
 

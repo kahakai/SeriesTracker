@@ -56,8 +56,8 @@ struct AddShowView: View {
                     .keyboardType(.asciiCapableNumberPad)
             }
 
-            if let error = viewModel.uiState.error {
-                Text(error)
+            if let errorMessage = viewModel.uiState.error {
+                Text(errorMessage)
                     .font(.headline)
             }
 

@@ -43,7 +43,13 @@ struct AppView: View {
             }
             .navigationDestination(for: ShowDetailsView.Arguments.self) { arguments in
                 ShowDetailsView(
-                    show: arguments.show
+                    showID: arguments.showID,
+                    viewModel: ShowDetailsViewModel(
+                        showsRepository: ShowsRepository(
+                            persistenceController: persistenceController,
+                            showsMapper: ShowsMapper()
+                        )
+                    )
                 )
             }
         }

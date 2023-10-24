@@ -22,15 +22,15 @@ struct ShowsView: View {
                     ForEach(shows) { show in
                         NavigationLink(
                             value: ShowDetailsView.Arguments(
-                                show: show
+                                showID: show.id
                             )
                         ) {
                             Text(show.name)
                         }
                     }
                 }
-            case let .error(error):
-                Text(error.localizedDescription)
+            case let .error(errorMessage):
+                Text(errorMessage)
                     .font(.headline)
             }
         }

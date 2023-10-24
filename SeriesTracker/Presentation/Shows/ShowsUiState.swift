@@ -8,5 +8,5 @@
 enum ShowsUiState {
     case loading
     case success([Show])
-    case error(Error)
+    case error(String)
 }
