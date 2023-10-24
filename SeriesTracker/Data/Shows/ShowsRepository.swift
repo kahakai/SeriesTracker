@@ -9,6 +9,7 @@ import CoreData
 
 struct ShowsRepository {
     let persistenceController: PersistenceController
+    let showDAO: ShowDAO
     let showsMapper: ShowsMapper
 
     private var managedContext: NSManagedObjectContext {
@@ -24,19 +25,13 @@ struct ShowsRepository {
     }
 
     func getShows() throws -> [Show] {
-        let fetchAllRequest = ShowEntity.fetchRequest()
-        let entities = try managedContext.fetch(fetchAllRequest)
+        let fetchRequest = showDAO.fetchAll()
+        let entities = try managedContext.fetch(fetchRequest)
         return showsMapper.map(entities)
     }
 
     func getShow(withID id: UUID) throws -> Show? {
-        let fetchRequest = ShowEntity.fetchRequest()
-        fetchRequest.predicate = NSPredicate(
-            format: "%K == %@",
-            "id", id as NSUUID
-        )
-        fetchRequest.fetchLimit = 1
-
+        let fetchRequest = showDAO.fetchOne(withID: id)
         let entities = try managedContext.fetch(fetchRequest)
 
         guard let entity = entities.first else {

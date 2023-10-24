@@ -108,6 +108,7 @@ struct AddShowView_Previews: PreviewProvider {
             viewModel: AddShowViewModel(
                 showsRepository: ShowsRepository(
                     persistenceController: PersistenceController.preview,
+                    showDAO: ShowDAO(),
                     showsMapper: ShowsMapper()
                 )
             )

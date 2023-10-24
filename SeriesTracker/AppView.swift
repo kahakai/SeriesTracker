@@ -16,6 +16,7 @@ struct AppView: View {
                 viewModel: ShowsViewModel(
                     showsRepository: ShowsRepository(
                         persistenceController: persistenceController,
+                        showDAO: ShowDAO(),
                         showsMapper: ShowsMapper()
                     )
                 )
@@ -36,6 +37,7 @@ struct AppView: View {
                     viewModel: AddShowViewModel(
                         showsRepository: ShowsRepository(
                             persistenceController: persistenceController,
+                            showDAO: ShowDAO(),
                             showsMapper: ShowsMapper()
                         )
                     )
@@ -47,6 +49,7 @@ struct AppView: View {
                     viewModel: ShowDetailsViewModel(
                         showsRepository: ShowsRepository(
                             persistenceController: persistenceController,
+                            showDAO: ShowDAO(),
                             showsMapper: ShowsMapper()
                         )
                     )

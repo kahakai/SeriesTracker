@@ -77,6 +77,7 @@ struct ShowDetailsView_Previews: PreviewProvider {
             viewModel: ShowDetailsViewModel(
                 showsRepository: ShowsRepository(
                     persistenceController: PersistenceController.preview,
+                    showDAO: ShowDAO(),
                     showsMapper: ShowsMapper()
                 )
             )
