@@ -49,7 +49,7 @@ struct AddShowView: View {
                         .keyboardType(.asciiCapableNumberPad)
                 }
 
-                TextField("Current episode", text: $showName)
+                TextField("Current episode", text: $currentEpisode)
                     .keyboardType(.asciiCapableNumberPad)
 
                 TextField("Amount of episodes", text: $amountOfEpisodes)

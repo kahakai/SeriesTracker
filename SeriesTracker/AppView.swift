@@ -41,6 +41,11 @@ struct AppView: View {
                     )
                 )
             }
+            .navigationDestination(for: ShowDetailsView.Arguments.self) { arguments in
+                ShowDetailsView(
+                    show: arguments.show
+                )
+            }
         }
     }
 }

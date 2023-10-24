@@ -20,7 +20,11 @@ struct ShowsView: View {
             case let .success(shows):
                 List {
                     ForEach(shows) { show in
-                        NavigationLink(value: show) {
+                        NavigationLink(
+                            value: ShowDetailsView.Arguments(
+                                show: show
+                            )
+                        ) {
                             Text(show.name)
                         }
                     }

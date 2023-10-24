@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		48486AFC2AE41BDF00E6997E /* ShowsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48486AFB2AE41BDF00E6997E /* ShowsRepository.swift */; };
 		48486B012AE430BF00E6997E /* ShowsMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48486B002AE430BF00E6997E /* ShowsMapper.swift */; };
+		485151D72AE58BD2003BCF6C /* ShowDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 485151D62AE58BD2003BCF6C /* ShowDetailsView.swift */; };
 		48545F942AE1795100DBDB96 /* AddShowUiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48545F932AE1795100DBDB96 /* AddShowUiState.swift */; };
 		48545F962AE1799500DBDB96 /* AddShowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48545F952AE1799500DBDB96 /* AddShowViewModel.swift */; };
-		48545F9A2AE17EBE00DBDB96 /* NewShow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48545F992AE17EBE00DBDB96 /* NewShow.swift */; };
 		48545F9D2AE1889000DBDB96 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48545F9C2AE1889000DBDB96 /* Show.swift */; };
 		48545FA02AE188E400DBDB96 /* ShowsUiState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48545F9F2AE188E400DBDB96 /* ShowsUiState.swift */; };
 		48545FA22AE1893600DBDB96 /* ShowsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48545FA12AE1893600DBDB96 /* ShowsViewModel.swift */; };
@@ -29,9 +29,9 @@
 /* Begin PBXFileReference section */
 		48486AFB2AE41BDF00E6997E /* ShowsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsRepository.swift; sourceTree = "<group>"; };
 		48486B002AE430BF00E6997E /* ShowsMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsMapper.swift; sourceTree = "<group>"; };
+		485151D62AE58BD2003BCF6C /* ShowDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowDetailsView.swift; sourceTree = "<group>"; };
 		48545F932AE1795100DBDB96 /* AddShowUiState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShowUiState.swift; sourceTree = "<group>"; };
 		48545F952AE1799500DBDB96 /* AddShowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddShowViewModel.swift; sourceTree = "<group>"; };
-		48545F992AE17EBE00DBDB96 /* NewShow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewShow.swift; sourceTree = "<group>"; };
 		48545F9C2AE1889000DBDB96 /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
 		48545F9F2AE188E400DBDB96 /* ShowsUiState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsUiState.swift; sourceTree = "<group>"; };
 		48545FA12AE1893600DBDB96 /* ShowsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowsViewModel.swift; sourceTree = "<group>"; };
@@ -67,11 +67,20 @@
 			path = Shows;
 			sourceTree = "<group>";
 		};
+		485151D52AE58BB0003BCF6C /* ShowDetails */ = {
+			isa = PBXGroup;
+			children = (
+				485151D62AE58BD2003BCF6C /* ShowDetailsView.swift */,
+			);
+			path = ShowDetails;
+			sourceTree = "<group>";
+		};
 		48545F972AE17EA300DBDB96 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
 				48661AEF2AE060A00067B7D8 /* AddShow */,
 				48545F9B2AE183B600DBDB96 /* Common */,
+				485151D52AE58BB0003BCF6C /* ShowDetails */,
 				48545F9E2AE188A200DBDB96 /* Shows */,
 			);
 			path = Presentation;
@@ -80,7 +89,6 @@
 		48545F982AE17EAD00DBDB96 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				48545F992AE17EBE00DBDB96 /* NewShow.swift */,
 				48545F9C2AE1889000DBDB96 /* Show.swift */,
 			);
 			path = Domain;
@@ -242,12 +250,12 @@
 			files = (
 				48BC6CA92AE0466F00AB0C1E /* Persistence.swift in Sources */,
 				48BC6CAC2AE0466F00AB0C1E /* SeriesTracker.xcdatamodeld in Sources */,
+				485151D72AE58BD2003BCF6C /* ShowDetailsView.swift in Sources */,
 				48545FA02AE188E400DBDB96 /* ShowsUiState.swift in Sources */,
 				48661AEB2AE04C400067B7D8 /* AddShowView.swift in Sources */,
 				48661AEE2AE0518E0067B7D8 /* TextFieldStyle.swift in Sources */,
 				48486B012AE430BF00E6997E /* ShowsMapper.swift in Sources */,
 				48545F942AE1795100DBDB96 /* AddShowUiState.swift in Sources */,
-				48545F9A2AE17EBE00DBDB96 /* NewShow.swift in Sources */,
 				48BC6CA02AE0466D00AB0C1E /* SeriesTrackerApp.swift in Sources */,
 				48486AFC2AE41BDF00E6997E /* ShowsRepository.swift in Sources */,
 				48545F9D2AE1889000DBDB96 /* Show.swift in Sources */,
