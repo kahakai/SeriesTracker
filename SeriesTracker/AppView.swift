@@ -21,17 +21,6 @@ struct AppView: View {
                     )
                 )
             )
-            .toolbar {
-                ToolbarItem(placement: .navigationBarTrailing) {
-                    EditButton()
-                }
-                
-                ToolbarItem {
-                    NavigationLink(value: AddShowView.Arguments()) {
-                        Label("Add show", systemImage: "plus")
-                    }
-                }
-            }
             .navigationDestination(for: AddShowView.Arguments.self) { _ in
                 AddShowView(
                     viewModel: AddShowViewModel(

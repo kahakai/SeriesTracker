@@ -34,6 +34,17 @@ struct ShowsView: View {
                     .font(.headline)
             }
         }
+        .toolbar {
+            ToolbarItem(placement: .navigationBarLeading) {
+                EditButton()
+            }
+            
+            ToolbarItem(placement: .navigationBarTrailing) {
+                NavigationLink(value: AddShowView.Arguments()) {
+                    Label("Add show", systemImage: "plus")
+                }
+            }
+        }
         .navigationTitle("Shows")
         .onAppear {
             viewModel.loadShows()
