@@ -28,6 +28,9 @@ struct ShowsView: View {
                             Text(show.name)
                         }
                     }
+                    .onDelete { offsets in
+                        handleDeletion(for: shows, at: offsets)
+                    }
                 }
             case let .error(errorMessage):
                 Text(errorMessage)
@@ -48,6 +51,13 @@ struct ShowsView: View {
         .navigationTitle("Shows")
         .onAppear {
             viewModel.loadShows()
+        }
+    }
+
+    private func handleDeletion(for shows: [Show], at offsets: IndexSet) {
+        for index in offsets {
+            let show = shows[index]
+            viewModel.deleteShow(withID: show.id)
         }
     }
 }

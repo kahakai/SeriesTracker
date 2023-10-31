@@ -18,7 +18,7 @@ final class ShowDetailsViewModel: ObservableObject {
         self.showsRepository = showsRepository
     }
 
-    func loadShow(withID id: UUID) {
+    func loadShow(withID id: Show.ID) {
         uiState = .loading
 
         do {

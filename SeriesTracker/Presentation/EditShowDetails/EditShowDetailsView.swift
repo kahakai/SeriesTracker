@@ -84,6 +84,19 @@ struct EditShowDetailsView: View {
             .buttonStyle(.borderedProminent)
             .disabled(isSaveShowButtonDisabled)
         }
+        .toolbar {
+            ToolbarItem {
+                Button(
+                    action: {
+                        viewModel.deleteShow(withID: showID)
+                    },
+                    label: {
+                        Image(systemName: "trash")
+                    }
+                )
+                .tint(.red)
+            }
+        }
         .navigationTitle(getNavigationTitle())
         .disabled(viewModel.uiState.isSaveShowLoading)
         .onAppear {

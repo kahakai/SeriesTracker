@@ -31,7 +31,7 @@ struct ShowsRepository {
         return showsMapper.map(entities)
     }
 
-    func getShow(withID id: UUID) throws -> Show? {
+    func getShow(withID id: Show.ID) throws -> Show? {
         let fetchRequest = showDAO.fetchOne(withID: id)
         let entities = try managedContext.fetch(fetchRequest)
 
@@ -59,7 +59,7 @@ struct ShowsRepository {
         try managedContext.save()
     }
 
-    func deleteShow(withID id: UUID) throws {
+    func deleteShow(withID id: Show.ID) throws {
         let fetchRequest = showDAO.fetchOne(withID: id)
         let entities = try managedContext.fetch(fetchRequest)
 

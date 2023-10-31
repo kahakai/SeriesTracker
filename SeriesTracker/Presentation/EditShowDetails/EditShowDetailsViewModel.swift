@@ -25,7 +25,7 @@ final class EditShowDetailsViewModel: ObservableObject {
         self.showsRepository = showsRepository
     }
 
-    func loadShow(withID id: UUID) {
+    func loadShow(withID id: Show.ID) {
         uiState = EditShowDetailsUiState(
             isShowLoading: true,
             show: nil,
@@ -93,6 +93,39 @@ final class EditShowDetailsViewModel: ObservableObject {
             uiState = EditShowDetailsUiState(
                 isShowLoading: false,
                 show: showWithUpdates,
+                loadingError: nil,
+                isSaveShowLoading: false,
+                isSuccessfullySaved: false,
+                savingError: error.localizedDescription
+            )
+        }
+    }
+
+    func deleteShow(withID id: Show.ID) {
+        uiState = EditShowDetailsUiState(
+            isShowLoading: false,
+            show: uiState.show,
+            loadingError: nil,
+            isSaveShowLoading: true,
+            isSuccessfullySaved: false,
+            savingError: nil
+        )
+
+        do {
+            try showsRepository.deleteShow(withID: id)
+
+            uiState = EditShowDetailsUiState(
+                isShowLoading: false,
+                show: uiState.show,
+                loadingError: nil,
+                isSaveShowLoading: false,
+                isSuccessfullySaved: true,
+                savingError: nil
+            )
+        } catch {
+            uiState = EditShowDetailsUiState(
+                isShowLoading: false,
+                show: uiState.show,
                 loadingError: nil,
                 isSaveShowLoading: false,
                 isSuccessfullySaved: false,

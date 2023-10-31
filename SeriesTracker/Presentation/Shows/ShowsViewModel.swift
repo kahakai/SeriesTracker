@@ -28,4 +28,8 @@ final class ShowsViewModel: ObservableObject {
             uiState = .error(error.localizedDescription)
         }
     }
+
+    func deleteShow(withID id: Show.ID) {
+        try? showsRepository.deleteShow(withID: id)
+    }
 }
