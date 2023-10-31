@@ -58,4 +58,16 @@ struct ShowsRepository {
 
         try managedContext.save()
     }
+
+    func deleteShow(withID id: UUID) throws {
+        let fetchRequest = showDAO.fetchOne(withID: id)
+        let entities = try managedContext.fetch(fetchRequest)
+
+        guard let entity = entities.first else {
+            throw ShowsRepositoryError.showNotFound
+        }
+
+        managedContext.delete(entity)
+        try managedContext.save()
+    }
 }
