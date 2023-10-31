@@ -9,12 +9,12 @@ import SwiftUI
 
 @main
 struct SeriesTrackerApp: App {
-    let persistenceController = PersistenceController.shared
+    private let dependenciesContainer = DependenciesContainer()
 
     var body: some Scene {
         WindowGroup {
             AppView(
-                persistenceController: persistenceController
+                dependenciesContainer: dependenciesContainer
             )
         }
     }
