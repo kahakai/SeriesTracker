@@ -27,6 +27,7 @@ struct ShowsRepository {
     func getShows() throws -> [Show] {
         let fetchRequest = showDAO.fetchAll()
         let entities = try managedContext.fetch(fetchRequest)
+
         return showsMapper.map(entities)
     }
 
@@ -39,5 +40,22 @@ struct ShowsRepository {
         }
 
         return showsMapper.map(entity)
+    }
+
+    func updateShow(_ show: Show) throws {
+        let fetchRequest = showDAO.fetchOne(withID: show.id)
+        let entities = try managedContext.fetch(fetchRequest)
+
+        guard let entity = entities.first else {
+            throw ShowsRepositoryError.showNotFound
+        }
+
+        entity.name = show.name
+        entity.hasSeveralSeasons = show.hasSeveralSeasons
+        entity.currentSeason = Int16(show.currentSeason)
+        entity.currentEpisode = Int16(show.currentEpisode)
+        entity.amountOfEpisodes = Int16(show.amountOfEpisodes)
+
+        try managedContext.save()
     }
 }

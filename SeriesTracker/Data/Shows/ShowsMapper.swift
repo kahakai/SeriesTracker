@@ -10,7 +10,7 @@ import Foundation
 struct ShowsMapper {
     func map(_ show: Show) -> ShowEntity {
         let entity = ShowEntity()
-        entity.id = UUID()
+        entity.id = show.id
         entity.name = show.name
         entity.hasSeveralSeasons = show.hasSeveralSeasons
         entity.currentSeason = Int16(show.currentSeason)
