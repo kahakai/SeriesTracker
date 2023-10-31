@@ -44,6 +44,18 @@ struct AppView: View {
                     )
                 )
             }
+            .navigationDestination(for: EditShowDetailsView.Arguments.self) { arguments in
+                EditShowDetailsView(
+                    showID: arguments.showID,
+                    viewModel: EditShowDetailsViewModel(
+                        showsRepository: ShowsRepository(
+                            persistenceController: persistenceController,
+                            showDAO: ShowDAO(),
+                            showsMapper: ShowsMapper()
+                        )
+                    )
+                )
+            }
         }
     }
 }

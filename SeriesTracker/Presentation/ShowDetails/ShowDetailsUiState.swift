@@ -13,7 +13,7 @@ enum ShowDetailsUiState {
     case error(String)
 }
 
-enum LoadShowError: LocalizedError {
+enum ShowDetailsError: LocalizedError {
     case notFound
 
     var errorDescription: String {

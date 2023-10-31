@@ -46,6 +46,12 @@ struct ShowDetailsView: View {
                     .font(.headline)
             }
         }
+        .toolbar {
+            NavigationLink(
+                "Edit",
+                value: EditShowDetailsView.Arguments(showID: showID)
+            )
+        }
         .navigationTitle(getNavigationTitle())
         .onAppear {
             viewModel.loadShow(withID: showID)

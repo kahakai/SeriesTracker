@@ -23,7 +23,7 @@ final class ShowDetailsViewModel: ObservableObject {
 
         do {
             guard let show = try showsRepository.getShow(withID: id) else {
-                uiState = .error(LoadShowError.notFound.localizedDescription)
+                uiState = .error(ShowDetailsError.notFound.localizedDescription)
                 return
             }
 
